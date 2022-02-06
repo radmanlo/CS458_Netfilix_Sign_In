@@ -70,7 +70,7 @@ body{
 
 
 .input_wrap{
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .login_body button{
@@ -80,19 +80,26 @@ body{
     background: #e50914;
     border-radius: 5px;
     font-weight: 500;
-    font-size: 1px solid #e50914;
+    font-size: 1px bold #e50914;
+    margin-top: 25px;
 }
 
 .support{
     display: flex;
-    color: #fff;
+    color: #969595;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 13px;
+    
+
 }
 
 .support input{
     width: 15px;
     height: 15px;
+}
+
+.need_help a{
+    color: #969595;
 }
 
 .remember{
@@ -101,13 +108,14 @@ body{
 }
 
 .remember span{
-    margin-right: 10px;
-    height: 25px;
+    margin-right: 2px;
+    height: 10px;
 }
 
 .login_facebook{
     display: flex;
     align-items: center;
+    margin-top: 70px;
     width: 100%;
     color: #737373;
 }
@@ -122,3 +130,28 @@ body{
     font-size: 13px;
 }
 
+.login_facebook span a{
+    text-decoration: none;
+    color: #737373;
+}
+
+.sign_up{
+    color: #737373;
+    font-size: 16px;
+}
+
+.sign_up a{
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.terms{
+    color: #737373;
+    font-size: 13px;
+}
+
+.terms a{
+    text-decoration: none;
+    color: #0071eb;
+}
