@@ -195,11 +195,18 @@ body{
     font-size: smaller;
 }
 
-select {
-    font-size: .9rem;
-    padding: 2px 5px;
+.language{
     position: relative;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 420px;
-    color: rgb(0, 0, 0);
+    
+}
+select{
+    height: 50px;
+    width: 100px;
+}
+
+option{
+    height: 50px;
+    width: 100px;
 }
