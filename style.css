@@ -18,7 +18,7 @@ body{
 
 .wrapper{
     background-image: url(./Images/back.jpg);
-    height: 100vh;
+    height: 118.75vh;
     background-image: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -89,8 +89,6 @@ body{
     color: #969595;
     justify-content: space-between;
     font-size: 13px;
-    
-
 }
 
 .support input{
@@ -100,6 +98,7 @@ body{
 
 .need_help a{
     color: #969595;
+    text-decoration: none;
 }
 
 .remember{
@@ -154,4 +153,53 @@ body{
 .terms a{
     text-decoration: none;
     color: #0071eb;
+}
+
+.foot{
+    margin-top: 120px;
+    padding: 35px;
+    height: 194px;
+    background: rgba(0, 0, 0, .75);
+    margin-block-end: 100px;
+}
+
+.foot span{
+    color: #737373;
+    position: relative;
+    margin-left: 420px;
+    margin-bottom: 20px;
+}
+
+.foot a{
+    color: #737373;
+    position: relative;
+    text-decoration: none;
+}
+
+.links{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 420px;
+    margin-right: 600px;
+    justify-content: space-between;
+    font-size: smaller;
+}
+
+.links2{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 420px;
+    margin-right: 1060px;
+    justify-content: space-between;
+    font-size: smaller;
+}
+
+select {
+    font-size: .9rem;
+    padding: 2px 5px;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 420px;
+    color: rgb(0, 0, 0);
 }
