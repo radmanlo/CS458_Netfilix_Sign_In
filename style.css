@@ -73,7 +73,7 @@ body{
     margin-bottom: 10px;
 }
 
-.login_body button{
+.input_wrap button{
     height: 50px;
     width: 100%;
     color: #fff;
@@ -129,9 +129,11 @@ body{
     font-size: 13px;
 }
 
-.login_facebook span a{
+.login_facebook button{
     text-decoration: none;
     color: #737373;
+    background: none;
+    border:none;
 }
 
 .sign_up{
