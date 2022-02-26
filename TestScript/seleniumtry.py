@@ -7,8 +7,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-chromeDriver = webdriver.Chrome("/Users/turanmertduran/Desktop/chromedriver")
-geckoDriver = webdriver.Firefox(executable_path="/Users/turanmertduran/Desktop/geckodriver")
+chromeDriver = webdriver.Chrome("/opt/homebrew/Caskroom/chromedriver/98.0.4758.102/chromedriver")
+geckoDriver = webdriver.Firefox(executable_path="/opt/homebrew/Cellar/geckodriver/0.30.0/bin/geckodriver")
 def sucSignInTry(driver):
     driver.get("http://localhost:5500/CS458_Netfilix_Sign_In/Index.html")
     signInBtn = driver.find_element_by_id("signIn")
@@ -64,7 +64,7 @@ def keyboardNavigationTest(driver):
     page_title = driver.title
     assert page_title == "Main"
 
-#keyboardNavigationTest(geckoDriver)
-#keyboardNavigationTest(chromeDriver)
-#geckoDriver.close()
-#chromeDriver.close()
+keyboardNavigationTest(geckoDriver)
+keyboardNavigationTest(chromeDriver)
+geckoDriver.close()
+chromeDriver.close()
