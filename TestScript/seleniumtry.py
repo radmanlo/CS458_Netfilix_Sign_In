@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 chromeDriver = webdriver.Chrome("/opt/homebrew/Caskroom/chromedriver/98.0.4758.102/chromedriver")
 geckoDriver = webdriver.Firefox(executable_path="/opt/homebrew/Cellar/geckodriver/0.30.0/bin/geckodriver")
 def sucSignInTry(driver):
-    driver.get("http://localhost:5500/CS458_Netfilix_Sign_In/Index.html")
+    driver.get("http://localhost:5500/Index.html")
     signInBtn = driver.find_element_by_id("signIn")
     emailF = driver.find_element_by_id("email")
     passwordF = driver.find_element_by_id("password")
@@ -28,7 +28,7 @@ def sucSignInTry(driver):
 #sucSignInTry(chromeDriver)
 
 def unSucSignInTry(driver):
-    driver.get("http://localhost:5500/CS458_Netfilix_Sign_In/Index.html")
+    driver.get("http://localhost:5500/Index.html")
     signInBtn = driver.find_element_by_id("signIn")
     emailF = driver.find_element_by_id("email")
     passwordF = driver.find_element_by_id("password")
@@ -46,7 +46,7 @@ def unSucSignInTry(driver):
 #unSucSignInTry(chromeDriver)
 
 def keyboardNavigationTest(driver):
-    driver.get("http://localhost:5500/CS458_Netfilix_Sign_In/Index.html")
+    driver.get("http://localhost:5500/Index.html")
     element = driver.switch_to.active_element
     if driver == chromeDriver:
         element.send_keys(Keys.TAB)
@@ -54,9 +54,17 @@ def keyboardNavigationTest(driver):
     element.send_keys(Keys.TAB)
     element = driver.switch_to.active_element
     element.send_keys("radman@gmail.com")
+    time.sleep(3)
+    print("dusundum")
     element.send_keys(Keys.TAB)
+    time.sleep(2)
     element = driver.switch_to.active_element
+    time.sleep(2)
+    print("bismillah")
+    #driver.find_element_by_id("password").send_keys("123456")
+    #ActionChains(driver).reset_actions()
     element.send_keys("123456")
+    time.sleep(3)
     element.send_keys(Keys.TAB)
     element = driver.switch_to.active_element
     element.send_keys(Keys.ENTER)
@@ -64,7 +72,25 @@ def keyboardNavigationTest(driver):
     page_title = driver.title
     assert page_title == "Main"
 
-keyboardNavigationTest(geckoDriver)
-keyboardNavigationTest(chromeDriver)
+#keyboardNavigationTest(geckoDriver)
+#keyboardNavigationTest(chromeDriver)
+
+def checkInputAsExpected(driver):
+    driver.get("http://localhost:5500/Index.html")
+    emailF = driver.find_element_by_id("email")
+    passwordF = driver.find_element_by_id("password")
+
+    emailF.send_keys("email-temporary")
+    passwordF.send_keys("temp-password")
+
+    time.sleep(3)
+
+    textInEmailField = driver.find_element_by_id("email").get_attribute("value")
+    textInPasswordField = driver.find_element_by_id("password").get_attribute("value")
+    assert textInEmailField == "email-temporary"
+    assert textInPasswordField == "temp-password"
+
+checkInputAsExpected(chromeDriver)
+checkInputAsExpected(geckoDriver)
 geckoDriver.close()
 chromeDriver.close()
