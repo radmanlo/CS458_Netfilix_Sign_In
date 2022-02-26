@@ -6,9 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-
-chromeDriver = webdriver.Chrome("/opt/homebrew/Caskroom/chromedriver/98.0.4758.102/chromedriver")
-geckoDriver = webdriver.Firefox(executable_path="/opt/homebrew/Cellar/geckodriver/0.30.0/bin/geckodriver")
+chromeDriver = webdriver.Chrome("/Users/turanmertduran/Desktop/chromedriver")
+geckoDriver = webdriver.Firefox(executable_path="/Users/turanmertduran/Desktop/geckodriver")
 def sucSignInTry(driver):
     driver.get("http://localhost:5500/Index.html")
     signInBtn = driver.find_element_by_id("signIn")
@@ -24,8 +23,8 @@ def sucSignInTry(driver):
     page_title = driver.title
     assert page_title == "Main"
 
-#sucSignInTry(geckoDriver)
-#sucSignInTry(chromeDriver)
+sucSignInTry(geckoDriver)
+sucSignInTry(chromeDriver)
 
 def unSucSignInTry(driver):
     driver.get("http://localhost:5500/Index.html")
@@ -42,8 +41,8 @@ def unSucSignInTry(driver):
     page_title = driver.title
     assert page_title == "Netflix"
 
-#unSucSignInTry(geckoDriver)
-#unSucSignInTry(chromeDriver)
+unSucSignInTry(geckoDriver)
+unSucSignInTry(chromeDriver)
 
 def keyboardNavigationTest(driver):
     driver.get("http://localhost:5500/Index.html")
@@ -55,14 +54,10 @@ def keyboardNavigationTest(driver):
     element = driver.switch_to.active_element
     element.send_keys("radman@gmail.com")
     time.sleep(3)
-    print("dusundum")
     element.send_keys(Keys.TAB)
     time.sleep(2)
     element = driver.switch_to.active_element
     time.sleep(2)
-    print("bismillah")
-    #driver.find_element_by_id("password").send_keys("123456")
-    #ActionChains(driver).reset_actions()
     element.send_keys("123456")
     time.sleep(3)
     element.send_keys(Keys.TAB)
@@ -72,8 +67,8 @@ def keyboardNavigationTest(driver):
     page_title = driver.title
     assert page_title == "Main"
 
-#keyboardNavigationTest(geckoDriver)
-#keyboardNavigationTest(chromeDriver)
+keyboardNavigationTest(geckoDriver)
+keyboardNavigationTest(chromeDriver)
 
 def checkInputAsExpected(driver):
     driver.get("http://localhost:5500/Index.html")
@@ -92,5 +87,6 @@ def checkInputAsExpected(driver):
 
 checkInputAsExpected(chromeDriver)
 checkInputAsExpected(geckoDriver)
+print("Test Passed")
 geckoDriver.close()
 chromeDriver.close()
