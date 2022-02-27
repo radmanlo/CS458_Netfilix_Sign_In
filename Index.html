@@ -124,8 +124,10 @@
                 var email = document.getElementById('email').value;
                 var password = document.getElementById('password').value;
                 if (!isNaN(email)){
-                    if (email == 5318199021 && password == 123456)        
+                    if (email == 1110000111 && password == 123456)        
                         window.location.href = "main.html";
+                    else
+                        alert("password or email is worng");
                 }
                 else{
                     signInWithEmailAndPassword(auth, email, password)

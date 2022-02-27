@@ -11,14 +11,14 @@ Since, one of the requirements of this project is login with Facebook account, w
 For testing application can use the information below:
 
 Email:
-    radman@gmail.com
+    radman@gmail.com or rad@gmail.com or radu@gmail.com
 Password:
     123456
 
 or
 
 phone:
-    5318199021  
+    1110000111  
 password:
     123456
 
