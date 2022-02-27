@@ -18,7 +18,7 @@ body{
 
 .wrapper{
     background-image: url(./Images/back.jpg);
-    height: 118.75vh;
+    height: 131vh;
     background-image: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -37,7 +37,7 @@ body{
     right: 0;
 }
 
-.login_body{
+.login{
     padding: 60px;
     z-index: 90;
     position: relative;
@@ -50,13 +50,7 @@ body{
     transform: translate(-50%);
 }
 
-.login_body h2{
-    font-size: 32px;
-    color: #fff;
-    margin-top: 0;
-}
-
-.login_body input{
+.email input{
     height: 50px;
     width: 100%;
     border-radius: 5px;
@@ -68,12 +62,19 @@ body{
     outline: none;
 }
 
-
-.input_wrap{
-    margin-bottom: 10px;
+.password input{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    color: #fff;
+    background: #333;
+    border: 1px solid #333;
+    padding-left: 15px;
+    box-sizing: border-box;
+    outline: none;
 }
 
-.input_wrap button{
+.signIn button{
     height: 50px;
     width: 100%;
     color: #fff;
@@ -84,34 +85,7 @@ body{
     margin-top: 25px;
 }
 
-.support{
-    display: flex;
-    color: #969595;
-    justify-content: space-between;
-    font-size: 13px;
-}
-
-.support input{
-    width: 15px;
-    height: 15px;
-}
-
-.need_help a{
-    color: #969595;
-    text-decoration: none;
-}
-
-.remember{
-    display: flex;
-    align-items: center;
-}
-
-.remember span{
-    margin-right: 2px;
-    height: 10px;
-}
-
-.login_facebook{
+.facebook{
     display: flex;
     align-items: center;
     margin-top: 70px;
@@ -119,48 +93,10 @@ body{
     color: #737373;
 }
 
-.login_facebook img{
-    width:  20px;
-    height: 20px;
-}
-
-.login_facebook span{
-    margin-right: 10px;
-    font-size: 13px;
-}
-
-.login_facebook button{
-    text-decoration: none;
-    color: #737373;
-    background: none;
-    border:none;
-}
-
-.sign_up{
-    color: #737373;
-    font-size: 16px;
-}
-
-.sign_up a{
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-}
-
-.terms{
-    color: #737373;
-    font-size: 13px;
-}
-
-.terms a{
-    text-decoration: none;
-    color: #0071eb;
-}
-
 .foot{
     margin-top: 120px;
     padding: 35px;
-    height: 194px;
+    height: 198px;
     background: rgba(0, 0, 0, .75);
     margin-block-end: 100px;
 }
