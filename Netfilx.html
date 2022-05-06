@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <title>Netflix</title>
+        <link rel="background" type="image" href="Images/logo3.png">
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class = "header">
+                <div class="logo">
+                    <a href="#"><img src="./Images/logo1.png" alt="logo" style="height: 45px; width: 167px;"></a>
+                </div>
+            </div>
+            <div class="login">
+                <h2 style="font-size: 32px; color: #fff; margin-top: 0;">
+                    Sign in
+                </h2>
+                <div>
+                    <div class="email" style="margin-bottom: 15px;">
+                        <input type="text" id="email" placeholder="Email or phone number">
+                    </div>
+                    <div class="password" style="margin-bottom: 15px;">
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+                    <div class="signIn">
+                        <button id="signIn">Sign in</button>
+                    </div>
+                    <div style="display: flex;color: #969595;justify-content:space-between;font-size:13px;">
+                        <div style="display: flex; align-items: center;">
+                            <span style="margin-right: 2px;height: 10px;">
+                                <input type="checkbox">
+                            </span>
+                            <span>Remember me</span>
+                        </div>
+                        <a href="#" style=" color: #969595; text-decoration: none;">Need help ?</a> 
+                    </div>
+                    <div class="facebook">
+                        <span style="margin-right: 10px;font-size: 13px;">
+                            <img src="./Images/face.png" alt="" style="width:  20px;height: 20px;">
+                        </span>
+                        <button id="fb" style="text-decoration: none;  color: #737373; background: none; border:none;">
+                            Login with Facebook
+                        </button>
+                    </div>
+                    <div style="color: #737373;font-size: 16px;">
+                        <p>New to Netflix? 
+                            <a href="#" style="color: #fff;font-size: 16px;text-decoration: none;">Sign up now.</a>
+                        </p>
+                    </div>
+                    <div style="color: #737373;font-size: 13px;">
+                        <p>This page is protected by Google reCAPTCHA to ensure you're not a bot 
+                            <a href="#" style="text-decoration: none;color: #0071eb;"> Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <div class="question">
+                    <span>Questions? Call 0850-390-7444</span>
+                </div>
+                <div class="links">
+                    <div class="FAQ">
+                        <a href="#">FAQ </a>
+                    </div>
+                    <div class="help_center">
+                        <a href="#">Help Center </a>
+                    </div>
+                    <div class="term_use">
+                        <a href="#">Terms of Use </a>
+                    </div>
+                    <div class="privacy">
+                        <a href="#">Privacy </a>
+                    </div> 
+                </div>   
+                <div class="links2">
+                    <div class="cookie_performance">
+                        <a href="#">Cookie Preferences</a>
+                    </div>
+                    <div class="co_info">
+                        <a href="#">Corporate Information </a>
+                    </div>  
+                </div> 
+                <div class="language">
+                    <select name="lang" style="color: gray; background-color: black;">
+                        <option style="color: gray;" value="first" >Türkçe</option>
+                        <option style="color: gray;" value="second" selected>English</option>
+                    </select>
+                </div>            
+            </div>
+        </div>
+    </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        //"https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js"
+        //"https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js"
+        //"https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js"
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword, signInWithPopup, FacebookAuthProvider} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCPP2dyiRT8FstKGSDEJxO9NG_ftHuKjbc",
+          authDomain: "cs458-project1-2a9d8.firebaseapp.com",
+          databaseURL: "https://cs458-project1-2a9d8-default-rtdb.firebaseio.com",
+          projectId: "cs458-project1-2a9d8",
+          storageBucket: "cs458-project1-2a9d8.appspot.com",
+          messagingSenderId: "810987788989",
+          appId: "1:810987788989:web:82626b733356d4f141f5d4"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+        const provider = new FacebookAuthProvider();
+
+        document.getElementById("signIn").addEventListener("click", 
+            function(){  
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+                if (!isNaN(email)){
+                    if (email == 1110000111 && password == 123456)        
+                        window.location.href = "main.html";
+                    else
+                        alert("password or email is worng");
+                }
+                else{
+                    signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        //alert("You Are Signed IN");
+                        window.location.href = "main.html";
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(errorMessage);
+                    });
+                }
+            });
+        document.getElementById("fb").addEventListener("click", 
+            function fb(){ 
+                signInWithPopup(auth, provider)
+                .then((result) => {
+                // The signed-in user info.
+                const user = result.user;
+
+                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                const credential = FacebookAuthProvider.credentialFromResult(result);
+                const accessToken = credential.accessToken;
+                window.location.href = "main.html";
+                // ...
+                })
+                .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The AuthCredential type that was used.
+                const credential = FacebookAuthProvider.credentialFromError(error);
+                alert(errorMessage);
+                // ...
+                });
+            });
+      </script>
+</html>
